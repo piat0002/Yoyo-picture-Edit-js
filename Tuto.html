@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier des Pixels sur une Image</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+        .flex-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        h3 {
+            width: 300px;
+        }
+        .card { 
+            width: 302px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Premiere page</h1>
+    <img id="myImage" src="./img.png" style="display:none;">
+    <div class="flex-container">
+        
+        <div class="card">
+            <h3>
+                Image original
+            </h3>
+            <canvas id="myCanvasOriginal" width="300" height="300"></canvas>
+            <p>Image original qui n'a subi aucune modification</p>
+
+        </div>
+        <div class="card">
+            <h3>
+                Image original modifié
+            </h3>
+            <canvas id="myCanvas" width="300" height="300"></canvas>
+            <p>Image qui à subi une modification d'un pixel</p>
+        </div>
+        <div class="card">
+            <h3>
+                Image original modifié sur 20*20 pixels 
+            </h3>
+            <canvas id="myCanvas20pixel" width="300" height="300"></canvas>
+            <p>Image original qui à subi une modification de plusieur sur 20*20 pixels </p>
+        </div>
+    </div>
+  
+    <script>
+
+        // Attendre que l'image soit chargée
+        document.getElementById('myImage').onload = function() {
+            // charger l'image
+            const canvasOriginal = document.getElementById('myCanvasOriginal');
+            const ctxOriginal = canvasOriginal.getContext('2d');
+
+            // Dessiner l'image sur le canvas
+            ctxOriginal.drawImage(this, 0, 0, canvasOriginal.width, canvasOriginal.height);
+
+            // Obtenir les données de l'image
+            const imageDataOriginal = ctxOriginal.getImageData(0, 0, canvasOriginal.width, canvasOriginal.height);
+            
+
+            // Modifier un pixel
+
+            // charger l'image
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Dessiner l'image sur le canvas
+            ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+
+            // Obtenir les données de l'image
+            const imageData = imageDataOriginal;
+            const data1pixel = imageData.data;
+
+            // Coordonnées du pixel à modifier
+            var x = 30; // Coordonnée x du pixel
+            var y = 30; // Coordonnée y du pixel
+
+            // Calculer l'index du pixel dans le tableau de données
+            var index = (y * imageData.width + x) * 4;
+
+            console.log("Donne du pixel avant modification",data1pixel[index],data1pixel[index + 1],data1pixel[index + 2],data1pixel[index + 3])
+
+
+            // Modifier les valeurs RGBA du pixel
+            data1pixel[index] = 255;     // Rouge
+            data1pixel[index + 1] = 0;   // Vert
+            data1pixel[index + 2] = 0;   // Bleu
+            data1pixel[index + 3] = 255; // Alpha (opacité)
+
+            // Mettre à jour le canvas avec les nouvelles données de l'image
+            ctx.putImageData(imageData, 0, 0);
+
+            console.log(data1pixel)
+
+            console.log("Donne du pixel apres modification",data1pixel[index],data1pixel[index + 1],data1pixel[index + 2],data1pixel[index + 3])
+
+
+            // Modifier 20 pixels
+
+            // charger l'image
+            const canvas20pixel = document.getElementById('myCanvas20pixel');
+            const ctx20pixel = canvas20pixel.getContext('2d');
+
+            // Dessiner l'image sur le canvas
+            ctx20pixel.drawImage(this, 0, 0, canvas20pixel.width, canvas20pixel.height);
+
+            // Obtenir les données de l'image
+            const imageData20pixel = ctx20pixel.getImageData(0, 0, canvasOriginal.width, canvasOriginal.height);
+            const data20pixel = imageData20pixel.data;
+
+
+            // Coordonnées du pixel à modifier
+            var xindex = 150; // Coordonnée x du pixel
+            var yindex = 150; // Coordonnée y du pixel
+            
+            for (let x = xindex; x < xindex + 20; x++) {
+                for (let y = yindex; y < yindex + 20; y++) {
+                    // Calculer l'index du pixel dans le tableau de données
+                    index = (y * imageData20pixel.width + x) * 4;
+
+
+                    // Modifier les valeurs RGBA du pixel
+                    data20pixel[index] = 0;     // Rouge
+                    data20pixel[index + 1] = 255;   // Vert
+                    data20pixel[index + 2] = 0;   // Bleu
+                    data20pixel[index + 3] = 255; // Alpha (opacité)
+                }
+            }
+            
+
+            // Mettre à jour le canvas avec les nouvelles données de l'image
+            ctx20pixel.putImageData(imageData20pixel, 0, 0);
+            ctx.putImageData(imageData, 0, 0);
+        };
+        
+
+        // Charger l'image
+        document.getElementById('myImage').src = './img.png';
+    </script>
+</body>
+</html>
