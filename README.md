@@ -2,5 +2,34 @@
 Tuto pour introduire au traitement d'image avec js canva
 
 
-## Premiere version du tuto 
-N'ouvrer pas directement la page html. Vous devez le lire avec un server local (live server par exemple).
+## Installation
+
+Il s'agit d'un module [Node.js](https://nodejs.org/en/) disponible via le
+[npm registry](https://www.npmjs.com/).
+
+Avant l'installation, téléchargez et installez [Node.js](https://nodejs.org/en/download/).
+Node.js 18 ou une version ultérieure est requise.
+
+Si c'est un tout nouveau projet, assurez-vous de créer d'abord un fichier `package.json` avec
+la commande [`npm init` command](https://docs.npmjs.com/creating-a-package-json-file).
+
+L'installation se fait à l'aide de la
+[`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally) :
+```bash
+npm install express
+```
+Suivez [notre guide d'installation](https://expressjs.com/en/starter/installing.html)
+pour plus d'informations.
+
+## Lancement du serveur
+
+Installer les dépendances :
+```bash
+npm install
+```
+Démarrer le serveur :
+```bash
+npm start
+```
+
+Afficher le site web à l'adresse : http://localhost:3000

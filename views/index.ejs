@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Première page</h1>
+    <img id="myImage" src="./images/img.png" style="display:none;">
+    <div class="flex-container">
+        <div class="card">
+            <h3>Image originale</h3>
+            <canvas id="myCanvasOriginal" width="300" height="300"></canvas>
+            <p>Image originale qui n'a subi aucune modification</p>
+        </div>
+        <div class="card">
+            <h3>Image originale modifiée</h3>
+            <canvas id="myCanvas" width="300" height="300"></canvas>
+            <p>Image qui a subi une modification d'un pixel</p>
+        </div>
+        <div class="card">
+            <h3>Image originale modifiée sur 20x20 pixels</h3>
+            <canvas id="myCanvas20pixel" width="300" height="300"></canvas>
+            <p>Image originale qui a subi une modification de plusieurs pixels sur 20x20 pixels</p>
+        </div>
+    </div>
+    <script src="./javascripts/premierePage.js"></script>
+  </body>
+</html>
