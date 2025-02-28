@@ -36,3 +36,6 @@ document.getElementById('myImage').onload = function() {
     }
     ctx20pixel.putImageData(imageData20pixel, 0, 0);
 };
+
+// Charger l'image
+document.getElementById('myImage').src = './images/img.png';
