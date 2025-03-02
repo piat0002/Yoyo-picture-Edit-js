@@ -1,20 +1,25 @@
-<nav class="bg-white shadow-lg">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="flex justify-between">
-      <div class="flex space-x-7">
-        <div>
-          <!-- Logo -->
-          <a href="/" class="flex items-center py-4 px-2">
-            <span class="font-semibold text-gray-500 text-lg">Mon Site</span>
-          </a>
-        </div>
-        <!-- Liens de navigation -->
-        <div class="hidden md:flex items-center space-x-1">
-          <a href="/" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Accueil</a>
-          <a href="/about" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">À propos</a>
-          <a href="/contact" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contact</a>
-        </div>
-      </div>
-    </div>
+
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">comprendre canvas</a></li>
+  <li><a href="#!">tuto introduction</a></li>
+  <li><a href="#!">tuto modification d'un pixel</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
   </div>
 </nav>
+<script>
+  $( document ).ready(function(){
+    $(".dropdown-trigger").dropdown();
+  });
+</script>
