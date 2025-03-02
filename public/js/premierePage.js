@@ -39,3 +39,5 @@ document.getElementById('myImage').onload = function() {
 
 // Charger l'image
 document.getElementById('myImage').src = './images/img.png';
+
+

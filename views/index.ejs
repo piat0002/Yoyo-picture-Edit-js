@@ -3,25 +3,32 @@
   <%- include('./layouts/header.ejs') %>
   <body>
     <%- include('./layouts/navbar.ejs') %>
-    <h1>Première page</h1>
     <img id="myImage" src="./images/img.png" style="display:none;">
-    <div class="flex-container">
-        <div class="card">
-            <h3>Image originale</h3>
-            <canvas id="myCanvasOriginal" width="300" height="300"></canvas>
-            <p>Image originale qui n'a subi aucune modification</p>
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center light-blue-text">Image originale</h2>
+          <p class="center"><canvas id="myCanvasOriginal" width="200" height="200"></canvas></p>
+          <p class="light center">Image originale qui n'a subi aucune modification.</p>
         </div>
-        <div class="card">
-            <h3>Image originale modifiée</h3>
-            <canvas id="myCanvas" width="300" height="300"></canvas>
-            <p>Image qui a subi une modification d'un pixel</p>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center light-blue-text">Image originale modifiée</h2>
+          <p class="center"><canvas id="myCanvas" width="200" height="200"></canvas></p>
+          <p class="light center">Image qui a subi une modification d'un pixel.</p>
         </div>
-        <div class="card">
-            <h3>Image originale modifiée sur 20x20 pixels</h3>
-            <canvas id="myCanvas20pixel" width="300" height="300"></canvas>
-            <p>Image originale qui a subi une modification de plusieurs pixels sur 20x20 pixels</p>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center light-blue-text">Image originale modifiée sur 20x20 pixels</h2>
+          <p class="center"><canvas id="myCanvas20pixel" width="200" height="200"></canvas></p>
+          <p class="light center">Image originale qui a subi une modification de plusieurs pixels sur 20x20 pixels.</p>
         </div>
-    </div>
-    <script src="./javascripts/premierePage.js"></script>
+      </div>
+    <%- include('./layouts/script.ejs') %>
+    <script src="./js/premierePage.js"></script>
   </body>
 </html>
