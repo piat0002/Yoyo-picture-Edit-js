@@ -1,5 +1,5 @@
 # Yoyo-picture-Edit-
-Tuto pour introduire au traitement d'image avec js canva
+Tutoriel pour introduire au traitement d'image avec js canva
 
 
 ## Installation
